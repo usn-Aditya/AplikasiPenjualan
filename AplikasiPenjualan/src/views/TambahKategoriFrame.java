@@ -116,17 +116,17 @@ public class TambahKategoriFrame extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         try {
-    // 1. Ambil data dari text field
+    // ini mengmabil data ditext field
     String nama = txtNama.getText();
     String deskripsi = txtDeskripsi.getText();
 
-    // 2. Validasi agar inputan tidak boleh kosong
+    // agar inputan tidak boleh kosong
     if (nama.equals("") || deskripsi.equals("")) {
         javax.swing.JOptionPane.showMessageDialog(this, "Semua kolom wajib diisi!");
         return;
     }
 
-    // 3. Siapkan query SQL untuk menyimpan ke database
+    // menyimpan ke databaes
     String sql = "INSERT INTO kategori (nama_kategori, deskripsi) VALUES (?, ?)";
     
     java.sql.Connection conn = config.Koneksi.configDB();
@@ -135,12 +135,12 @@ public class TambahKategoriFrame extends javax.swing.JFrame {
     pst.setString(1, nama);
     pst.setString(2, deskripsi);
     
-    // 4. Eksekusi query
+    // eksekusi query
     pst.executeUpdate();
     
     javax.swing.JOptionPane.showMessageDialog(this, "Data Kategori Berhasil Disimpan!");
     
-    // 5. Tutup form tambah setelah berhasil simpan
+    // menutup setelah berhasil simpan
     this.dispose();
     
 } catch (java.sql.SQLException e) {
